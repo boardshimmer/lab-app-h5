@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>天天盈球 · 球场故事与日常</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #fef0d7 0%, #fce5c0 30%, #f7d9af 70%, #fccf9c 100%);
+            color: #2c2b26;
+            line-height: 1.6;
+            padding: 0 1.5rem 3rem;
+            min-height: 100vh;
+        }
+
+        .wrap {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2.5rem 0 1rem;
+        }
+
+        /* hero 横幅 — 杂志头图感 */
+        .hero {
+            background: rgba(255, 245, 230, 0.7);
+            backdrop-filter: blur(2px);
+            border-radius: 2.5rem 2.5rem 2rem 2rem;
+            padding: 3.8rem 2.2rem 3.2rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 30px -12px rgba(170, 100, 40, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::after {
+            content: "⚽ 🏀 🏐";
+            display: block;
+            font-size: 2.2rem;
+            letter-spacing: 1rem;
+            margin-top: 1.2rem;
+            opacity: 0.5;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            font-weight: 560;
+            letter-spacing: 1px;
+            color: #4e3a26;
+            margin-bottom: 0.7rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #5f4a32;
+            max-width: 560px;
+            margin: 0.8rem auto 0;
+            font-weight: 380;
+        }
+
+        /* 内容卡片 */
+        .card {
+            background: #fffbf5;
+            border-radius: 2rem;
+            padding: 2.2rem 2.4rem 2.6rem;
+            margin-bottom: 2.8rem;
+            box-shadow: 0 10px 18px -4px rgba(150, 90, 40, 0.12);
+            transition: all 0.15s;
+        }
+
+        .card h2 {
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: #4f3a27;
+            border-left: 6px solid #e7b785;
+            padding-left: 1rem;
+            margin-bottom: 1.3rem;
+            letter-spacing: 0.3px;
+        }
+
+        .card h3 {
+            font-weight: 480;
+            font-size: 1.25rem;
+            color: #634f39;
+            margin: 1.5rem 0 0.6rem;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            color: #3d352b;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 链接按钮感 —— 圆角 + 暖色 */
+        .link-button {
+            display: inline-block;
+            background: #eccbad;
+            color: #3f2f1f;
+            padding: 0.5rem 1.5rem;
+            border-radius: 60px;
+            font-weight: 470;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border: 1px solid #dbb58b;
+            box-shadow: 0 2px 6px rgba(150, 80, 20, 0.08);
+            letter-spacing: 0.2px;
+        }
+
+        .link-button:hover {
+            background: #dfb887;
+            border-color: #b6895b;
+            box-shadow: 0 4px 12px rgba(140, 75, 20, 0.15);
+            transform: translateY(-1px);
+        }
+
+        /* 句子中自然链接 */
+        .inline-link {
+            color: #7c5e3f;
+            text-decoration: none;
+            font-weight: 480;
+            border-bottom: 1px dashed #cba87c;
+            transition: border 0.15s, color 0.15s;
+        }
+
+        .inline-link:hover {
+            color: #4d351f;
+            border-bottom: 1px solid #9b7a59;
+        }
+
+        /* 页尾 */
+        .footer-note {
+            margin-top: 2.8rem;
+            padding: 1.8rem 2rem;
+            background: rgba(238, 218, 191, 0.35);
+            backdrop-filter: blur(2px);
+            border-radius: 2rem;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #4d3d2c;
+            border: 1px solid #e4cbb0;
+        }
+
+        .footer-note strong {
+            font-weight: 500;
+        }
+
+        .footer-note .link-button {
+            margin-top: 0.6rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #dbbc99;
+            margin: 1.6rem 0;
+            opacity: 0.5;
+        }
+
+        /* 小响应 */
+        @media (max-width: 640px) {
+            body {
+                padding: 0 0.8rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero {
+                padding: 2.8rem 1.2rem 2.4rem;
+                border-radius: 2rem;
+            }
+            .card {
+                padding: 1.6rem 1.4rem 2rem;
+                border-radius: 1.6rem;
+            }
+            .card h2 {
+                font-size: 1.5rem;
+            }
+            .link-button {
+                padding: 0.4rem 1.2rem;
+                font-size: 0.95rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <!-- 横幅 —— 杂志专题式开篇 -->
+    <div class="hero">
+        <h1>天天盈球 · 赢的是心情</h1>
+        <p>不是每个球场都亮如白昼，但每场比赛都值得认真对待。从街边半场到专业体育馆，一群人的热爱，比比分更持久。</p>
+    </div>
+
+    <!-- 第一段：背景说明 —— 为什么是「盈球」 -->
+    <div class="card">
+        <h2>从一粒球开始</h2>
+        <p>“盈”字在中文里，有饱满、丰盛、从容的意味。<strong>天天盈球</strong>这个称呼，最早出现在几个朋友周末约球的微信群里——不管投进还是踢飞，大家总说“今天又盈了”。不是每场都赢，而是每次聚在球场上，人齐了、汗出了、笑够了，就已经是盈的那一方。</p>
+        <p>后来这个说法慢慢传开，成了一个小圈子里心照不宣的暗号：只要还愿意换上球鞋，站到线内，生活就没那么难。球友们把这种日常的笃定，带到了更开阔的地方。<a href="https://page-ttyingqiu.com" class="inline-link">天天盈球</a>这个名字，也就从一句玩笑，长成了一个站点、一个可以随时回来看看的角落。</p>
+        <hr>
+        <p style="font-size: 0.95rem; color: #655541;">顺便一提，页面创作的种子来自一串安静的字符，它负责变化，不负责定义。</p>
+    </div>
+
+    <!-- 第二段：三则自然介绍 —— 更像是场景速写 -->
+    <div class="card">
+        <h2>三种球场的日常速写</h2>
+
+        <h3>🏀 傍晚的露天球场</h3>
+        <p>塑胶地面被晒了一天，还留着余温。篮筐网已经褪色，但每投进一个空心球，铁链碰撞的声音依旧清脆。有人光着膀子运球，有人站在三分线外喊“给我”。这里没有计时器，只有手机倒计时。赢了一个回合的人继续打，输了的到旁边喝水、喘气、笑着骂两句。</p>
+
+        <h3>⚽ 周末的社区足球赛</h3>
+        <p>八人制，门将是临时拉来的。草坪不太平整，球偶尔会弹出一个奇怪弧线。但没人计较——能凑齐两个队，就已经赢了上半场。中场休息时大家坐成一排，拧开矿泉水瓶盖，聊的不是战术，是下周谁值班、哪家烤串好吃。有人手机屏幕亮着，上面是<a href="https://page-ttyingqiu.com" class="inline-link">天天盈球</a>里昨天传的片段。</p>
+
+        <h3>🏐 体育馆里的下班局</h3>
+        <p>六点四十，更衣室陆续来人。有些人西裤还没换完就开始讨论发球姿势。球网高度调了又调，直到所有人满意。打了三局，每个人都开始喘，但比分咬住的时候，没人愿意下场。赢球的一方会嚷着“明天继续”，输的那边也不服气：“再来一局，最后一句。”——这种局，最后一句通常能打到八点半。</p>
+
+        <p style="margin-top: 1.2rem;">这些瞬间密集而普通，但组合起来，就成了“盈”的全部含义。</p>
+    </div>
+
+    <!-- 第三段：从场景到站点（更深一层的介绍） -->
+    <div class="card">
+        <h2>一个站点，接住这些热气</h2>
+        <p>比起做一个纯粹的比分工具或数据平台，<strong>天天盈球</strong>更像是在球场旁边搭了个看台——你可以来这里看看别人是怎么玩的，分享自己刚拍的离谱失误，或者只是找到下一个约球的地方。内容不一定要专业，但一定要真实。</p>
+        <p>你不用成为高手，也不用记住所有规则。只需要知道，有这么一个地方，把“今天球场见”这几个字，从约定变成了习惯。目前站上讨论最多的话题包括：哪里能找到夜间开灯的篮球场、新手怎么加入野球局、以及那些“今天差点就赢了”的遗憾故事。</p>
+        <p style="margin-top: 1.2rem;">
+            <a href="https://page-ttyingqiu.com" class="link-button">天天盈球</a>
+        </p>
+        <p style="font-size: 0.95rem; color: #5f5142; margin-top: 0.5rem;">链接的文本简单直接，就像球场上的暗号一样。</p>
+    </div>
+
+    <!-- FAQ 摘要 + 页尾提示 -->
+    <div class="footer-note">
+        <strong>常见想法摘录</strong><br>
+        “一个人去球场会不会尴尬？” —— 大部分时候不会，带上球，站在篮下投几个，自然会有人问加一组。<br>
+        “什么水平才能一起玩？” —— 能跑、能接球、愿意传球，就够了。<br>
+        <hr style="margin: 1rem 0;">
+        <span>每天都有新故事，每天都是 <a href="https://page-ttyingqiu.com" class="inline-link">天天盈球</a>。</span><br>
+        <span style="display: inline-block; margin-top: 0.5rem;">⏺ 页尾提示：球场常在，链接常在。</span>
+    </div>
+
+</div>
+</body>
+</html>
